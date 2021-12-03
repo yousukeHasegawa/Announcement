@@ -1,24 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Announcement" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音声マニュアル" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbv-9t-eHh">
+                                <rect key="frame" x="0.0" y="64" width="414" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="d9e-ZK-4l3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="スタートを押してください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7D2-ER-8jO">
+                                <rect key="frame" x="0.0" y="144" width="414" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="xk5-Rc-et9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZNz-0w-die">
+                                <rect key="frame" x="0.0" y="364" width="414" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwP-cN-qfJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="もどる"/>
+                                        <connections>
+                                            <action selector="tappedRewindButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yS5-zY-QW4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNM-b0-J1y">
+                                        <rect key="frame" x="138" y="0.0" width="138" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Start"/>
+                                        <connections>
+                                            <action selector="tappedPlayButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Q2-dA-v15"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unz-CE-NV4">
+                                        <rect key="frame" x="276" y="0.0" width="138" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="すすむ"/>
+                                        <connections>
+                                            <action selector="tappedFfButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jG5-yG-FJq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="mTY-NW-XmP"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Cbv-9t-eHh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="28E-hr-Dtt"/>
+                            <constraint firstItem="Cbv-9t-eHh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="2qb-dI-S8z"/>
+                            <constraint firstItem="ZNz-0w-die" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5C0-Qy-rjs"/>
+                            <constraint firstItem="7D2-ER-8jO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="92W-x7-LK5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7D2-ER-8jO" secondAttribute="trailing" id="SFT-Re-KQ0"/>
+                            <constraint firstItem="ZNz-0w-die" firstAttribute="top" secondItem="7D2-ER-8jO" secondAttribute="bottom" constant="20" id="Xbz-e4-Rgh"/>
+                            <constraint firstItem="7D2-ER-8jO" firstAttribute="top" secondItem="Cbv-9t-eHh" secondAttribute="bottom" constant="40" id="avt-nj-tGu"/>
+                            <constraint firstItem="7D2-ER-8jO" firstAttribute="centerX" secondItem="Cbv-9t-eHh" secondAttribute="centerX" id="hB2-OD-hdV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZNz-0w-die" secondAttribute="trailing" id="nAD-Ia-UIR"/>
+                            <constraint firstItem="ZNz-0w-die" firstAttribute="centerX" secondItem="Cbv-9t-eHh" secondAttribute="centerX" id="oC4-aS-gtr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cbv-9t-eHh" secondAttribute="trailing" id="oIb-uz-i4z"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ffButton" destination="unz-CE-NV4" id="Y26-Xy-d7p"/>
+                        <outlet property="messageLabel" destination="7D2-ER-8jO" id="Bh4-m8-7d3"/>
+                        <outlet property="playButton" destination="nNM-b0-J1y" id="229-mX-Vyy"/>
+                        <outlet property="rewindButton" destination="jwP-cN-qfJ" id="YzK-27-7Fk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="30" y="70"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
