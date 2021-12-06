@@ -10,12 +10,12 @@ import UIKit
 class ViewController: UIViewController {
 
     var playCount: Int = -1
-    
-    let message: [String] = [
-    "操作を開始してください",
-    "操作を続けてください",
-    "操作を完了してください"
-    ]
+    var messages: [Message] = []
+//    let message: [String] = [
+//    "操作を開始してください",
+//    "操作を続けてください",
+//    "操作を完了してください"
+//    ]
     
     
     @IBOutlet weak var messageLabel: UILabel!
@@ -23,17 +23,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var ffButton: UIButton!
     
-    @IBAction func tappedRewindButton(_ sender: Any) {
-        playCount -= 1
-        play()
-        setDisplay()
-    }
+//    @IBAction func tappedRewindButton(_ sender: Any) {
+//        playCount -= 1
+//        play()
+//        setDisplay()
+//    }
     
     @IBAction func tappedPlayButton(_ sender: Any) {
         if playCount == -1 {
             playCount = 0
         }else{
-            playCount = message.count + 1
+            playCount = messages.count + 1
         }
         
         play()
@@ -53,15 +53,15 @@ class ViewController: UIViewController {
         if self.playCount == -1 {
             return
             
-        }else if self.playCount == self.message.count{
+        }else if self.playCount == self.messages.count{
             speakText.speech("これで終了です。お疲れ様でした")
             
-        }else if self.playCount > self.message.count{
+        }else if self.playCount > self.messages.count{
             speakText.speech("最初に戻ります。")
             self.playCount = -1
             
         }else{
-            speakText.speech(self.message[self.playCount])
+            speakText.speech(self.messages[self.playCount].text)
         }
     }
     
@@ -73,7 +73,7 @@ class ViewController: UIViewController {
             messageLabel.text = "スタートボタンを押してください"
             ffButton.isHidden = true
             
-        }else if playCount == self.message.count{
+        }else if playCount == self.messages.count{
         
             rewindButton.isHidden = true
             playButton.setTitle("スタートに戻る", for: .normal)
@@ -84,13 +84,14 @@ class ViewController: UIViewController {
         }else{
             rewindButton.isHidden = false
             playButton.setTitle("停止", for: .normal)
-            messageLabel.text = message[self.playCount]
+            messageLabel.text = messages[self.playCount].text
             ffButton.isHidden = false
         }
     }
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        messages = Bundle.main.decodeJSON("steps.json")
         setDisplay()
         // Do any additional setup after loading the view.
     }

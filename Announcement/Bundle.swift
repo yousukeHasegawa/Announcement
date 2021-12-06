@@ -20,12 +20,13 @@ extension Bundle {
        }
        
        // ③JSONデコード処理
-       //data をMessage型の定数 messageに代入
+       //data をloadedに代入
        let decoder = JSONDecoder()
        guard let loaded = try? decoder.decode(T.self, from: data) else {
            fatalError("Failed to decode \(file) from bundle.")
        }
        
+       // ④loadedを呼び出し元に返す。
        return loaded
    }
 }
