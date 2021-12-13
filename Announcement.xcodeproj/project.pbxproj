@@ -18,6 +18,7 @@
 		91489462275A09AE0007722F /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91489461275A09AE0007722F /* Bundle.swift */; };
 		9148946E275DE5510007722F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9148946D275DE5510007722F /* Message.swift */; };
 		91489472275DE5A30007722F /* steps.json in Resources */ = {isa = PBXBuildFile; fileRef = 91489471275DE5A30007722F /* steps.json */; };
+		914894762766DA480007722F /* WebMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914894752766DA480007722F /* WebMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		91489461275A09AE0007722F /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		9148946D275DE5510007722F /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		91489471275DE5A30007722F /* steps.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = steps.json; path = ../../../LocalTest/JsonReusable/JsonReusable/steps.json; sourceTree = "<group>"; };
+		914894752766DA480007722F /* WebMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				9125ECCB27571ACF0073767A /* AppDelegate.swift */,
+				914894752766DA480007722F /* WebMessage.swift */,
 				9125ECCD27571ACF0073767A /* SceneDelegate.swift */,
 				9125ECCF27571ACF0073767A /* ViewController.swift */,
 				9125ECE52759AA0C0073767A /* Message.swift */,
@@ -160,6 +163,7 @@
 				9125ECCE27571ACF0073767A /* SceneDelegate.swift in Sources */,
 				9125ECE0275868140073767A /* SpeakText.swift in Sources */,
 				9125ECE62759AA0C0073767A /* Message.swift in Sources */,
+				914894762766DA480007722F /* WebMessage.swift in Sources */,
 				9148946E275DE5510007722F /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

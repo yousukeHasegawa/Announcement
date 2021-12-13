@@ -23,11 +23,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var ffButton: UIButton!
     
-//    @IBAction func tappedRewindButton(_ sender: Any) {
-//        playCount -= 1
-//        play()
-//        setDisplay()
-//    }
+    @IBAction func tappedRewindButton(_ sender: Any) {
+        playCount -= 1
+        play()
+        setDisplay()
+    }
     
     @IBAction func tappedPlayButton(_ sender: Any) {
         if playCount == -1 {
