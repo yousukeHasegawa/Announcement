@@ -10,7 +10,8 @@ import UIKit
 class ViewController: UIViewController {
 
     var playCount: Int = -1
-    var messages: [Message] = []
+    var messages: [WebMessage]?
+//    var messages: [Message] = []
 //    let message: [String] = [
 //    "操作を開始してください",
 //    "操作を続けてください",
@@ -33,7 +34,7 @@ class ViewController: UIViewController {
         if playCount == -1 {
             playCount = 0
         }else{
-            playCount = messages.count + 1
+            playCount = messages!.count + 1
         }
         
         play()
@@ -53,15 +54,15 @@ class ViewController: UIViewController {
         if self.playCount == -1 {
             return
             
-        }else if self.playCount == self.messages.count{
+        }else if self.playCount == self.messages!.count{
             speakText.speech("これで終了です。お疲れ様でした")
             
-        }else if self.playCount > self.messages.count{
+        }else if self.playCount > self.messages!.count{
             speakText.speech("最初に戻ります。")
             self.playCount = -1
             
         }else{
-            speakText.speech(self.messages[self.playCount].text)
+            speakText.speech(self.messages![self.playCount].text)
         }
     }
     
@@ -73,7 +74,7 @@ class ViewController: UIViewController {
             messageLabel.text = "スタートボタンを押してください"
             ffButton.isHidden = true
             
-        }else if playCount == self.messages.count{
+        }else if playCount == self.messages!.count{
         
             rewindButton.isHidden = true
             playButton.setTitle("スタートに戻る", for: .normal)
@@ -84,14 +85,31 @@ class ViewController: UIViewController {
         }else{
             rewindButton.isHidden = false
             playButton.setTitle("停止", for: .normal)
-            messageLabel.text = messages[self.playCount].text
+            messageLabel.text = messages![self.playCount].text
             ffButton.isHidden = false
+        }
+    }
+    
+    //読み上げメッセージの取得
+    private func loadWebMessages(){
+        let parameters = [ "sort": "id", "_order": "desc"]
+        
+        // TODO　メッセージテキストの取得
+        WebAPIClient.getMessages(parameters: parameters){[weak self] result in
+            switch result {
+            case .success(let messages):
+                self!.messages = messages
+            case .failure(let error):
+                print(error)
+            }
         }
     }
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        messages = Bundle.main.decodeJSON("steps.json")
+            //messages = Bundle.main.decodeJSON("steps.json")
+            //読み上げ音声リストの取得
+            loadWebMessages()
         setDisplay()
         // Do any additional setup after loading the view.
     }

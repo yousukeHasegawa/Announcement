@@ -8,7 +8,11 @@
 import Foundation
 
 struct WebMessage : Codable {
-    var id:Int
+    let id: Int?
     var text: String
     
+    enum CodingKeys: String, CodingKey {
+        case id
+        case text
+    }
 }
